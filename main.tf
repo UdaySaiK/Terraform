@@ -1,8 +1,20 @@
 # Configuring the AWS Provider
 
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
 provider "aws" {
   region = "us-east-1"
+  access_key = ""
+  secret_key = ""
 }
+
 
 # Creating a VPC
 
@@ -70,26 +82,26 @@ resource "aws_security_group" "MySG" {
   vpc_id      = aws_vpc.MyVPC.id
 
 
-    ingress { 
+  ingress {
 
-    from_port         = 0
-    to_port           = 0
-    protocol          = "-1"
-    cidr_blocks       = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
 
-    }
+  }
 
-    egress { 
+  egress {
 
-    from_port         = 0
-    to_port           = 0
-    protocol          = "-1"
-    cidr_blocks       = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
 
-    }
+  }
 
-    tags = {
-        Name = "MySG"
-    }
+  tags = {
+    Name = "MySG"
+  }
 
 }
