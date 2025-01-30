@@ -77,7 +77,7 @@ resource "aws_route_table_association" "MyRTA" {
 # Creatiing a Security Group
 
 resource "aws_security_group" "MySG" {
-  name        = "allow_tls"
+  name        = "MySG"
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = aws_vpc.MyVPC.id
 
